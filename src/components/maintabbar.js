@@ -10,7 +10,7 @@ export default class extends React.Component {
   }
 
   toLink (href) {
-    location.href = href
+    window.location.href = href
   }
 
   render () {

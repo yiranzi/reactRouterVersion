@@ -7,6 +7,9 @@ import Test from './pages/test'
 import Home from './pages/home'
 // 商业英语
 import Summary from './pages/businessReading/summary'
+// import Mine from './pages/businessReading/mine'
+import Guide from './pages/businessReading/guide'
+import Keywords from './pages/businessReading/keywords'
 // 课程首页
 import Main from './pages/abilitycollege/main'
 
@@ -46,6 +49,9 @@ let AppRouter = class AppRouter extends React.Component {
           <Route path="/pages/test" component={Test} />
           <Route path="/pages/abilitycollege/main" component={Main} />
           <Route path="/pages/businessReading/summary" component={Summary} />
+          <Route path="/pages/businessReading/guide/:stageId/:lessonId" component={Guide} />
+          <Route path="/pages/businessReading/keywords/:stageId/:lessonId" component={Keywords} />
+          {/*<Route path="/pages/businessReading/mine" component={Mine} />*/}
           {/*<Route path="/about" component={About} />*/}
           {/*<Route path="/topics" component={Topics} />*/}
           {/*</Switch>*/}

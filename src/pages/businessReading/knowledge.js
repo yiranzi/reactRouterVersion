@@ -125,14 +125,14 @@ export default class extends React.Component {
           </div>
           <div className='wx-text-center margin25'>
             {!testStatus &&
-              <Link href={'/businessReading/finish?stageId=' + stageId + '&lessonId=' + lessonId}>
+              <Link href={`/pages/businessReading/finish?stageId=' + stageId + '&lessonId=' + lessonId}>
                 <a>
                   <Button className='businessReading-btn'>查看成绩</Button>
                 </a>
               </Link>
             }
             {testStatus &&
-              <Link href={'/businessReading/test?stageId=' + stageId + '&lessonId=' + lessonId}>
+              <Link href={`/pages/businessReading/test?stageId=' + stageId + '&lessonId=' + lessonId}>
                 <a>
                   <Button className='businessReading-btn'>读完了，去做题</Button>
                 </a>

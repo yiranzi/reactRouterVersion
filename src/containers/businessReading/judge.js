@@ -31,7 +31,7 @@ export default class extends React.Component {
       return this.renderNoStart()
     }
     if (status === 10003) {
-      location.href = 'https://wx.xiaozao.org/payment/buygether?courseId=106'
+      window.location.href = 'https://wx.xiaozao.org/payment/buygether?courseId=106'
     }
     return null
   }

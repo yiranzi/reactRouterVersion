@@ -45,7 +45,7 @@ export default class extends React.Component {
     return lessonList.map((item, index) => {
       return (
         <li className='line' key={index} onClick={e => this.openHandle(e, item)}>
-          <Link href={'/businessReading/guide?lessonId=' + item.id}>
+          <Link href={`/pages/businessReading/guide?lessonId=' + item.id}>
             <div className={'block ' + (!item.over && 'gray')}>
               <h4 className='title'>{item.name}</h4>
               <p className='title-en'>{item.titleEn}</p>

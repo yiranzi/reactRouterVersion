@@ -57,7 +57,7 @@ export default class extends React.Component {
               <span className='wx-pull-left'>{DateUtil.formatMonth(summary.day)} {summary.day && DateUtil.format(summary.day, 'dd') + ','} {DateUtil.formatDay(summary.day)}</span>
               <span className='wx-pull-right'>{summary.lessonName}</span>
             </h4>
-            <Link to={'/businessReading/keywords?stageId=' + summary.stageId + '&lessonId=' + summary.lessonId}>
+            <Link to={`/pages/businessReading/keywords/${summary.stageId}/${summary.lessonId}`}>
               <div className='cblock yellow'>
                 <div className='left'>
                   <span className='title'>生词</span>
@@ -68,7 +68,7 @@ export default class extends React.Component {
                 </div>
               </div>
             </Link>
-            <Link to={'/businessReading/guide?stageId=' + summary.stageId + '&lessonId=' + summary.lessonId}>
+            <Link to={'/pages/businessReading/guide/' + summary.stageId + '/' + summary.lessonId}>
               <div className='cblock blue'>
                 <div className='left'>
                   <p>

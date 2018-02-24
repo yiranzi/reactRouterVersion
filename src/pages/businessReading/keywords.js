@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'next/link'
+import {Link} from 'react-router-dom'
 import Layout from '../../containers/businessReading/layout'
 import Title from '../../containers/businessReading/title'
 import AxiosUtil from '../../util/axios'
@@ -20,8 +20,7 @@ export default class extends React.Component {
   }
 
   componentDidMount = async () => {
-    let stageId = ToolsUtil.getQueryString('stageId')
-    let lessonId = ToolsUtil.getQueryString('lessonId')
+    let {stageId, lessonId} = this.props.match.params
     this.loadData(stageId, lessonId)
   }
 
@@ -91,7 +90,7 @@ export default class extends React.Component {
             </div>
           </div>
           <div className='wx-text-center margin25'>
-            <Link href={'/businessReading/guide?stageId=' + stageId + '&lessonId=' + lessonId}>
+            <Link to={`/pages/businessReading/guide/${stageId}/${lessonId}`}>
               <Button className='businessReading-btn'>开始阅读</Button>
             </Link>
           </div>

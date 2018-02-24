@@ -1,8 +1,7 @@
 import React from 'react'
-import Link from 'next/link'
+import {Link} from 'react-router-dom'
 import Layout from '../../containers/businessReading/layout'
 import Footer from '../../containers/businessReading/footer'
-import Title from '../../containers/businessReading/title'
 import AxiosUtil from '../../util/axios'
 import Button from '../../xz-components/button'
 import ToolsUtil from '../../util/tools'
@@ -21,9 +20,8 @@ export default class extends React.Component {
     }
   }
 
-  componentDidMount = async () => {
-    let stageId = ToolsUtil.getQueryString('stageId') || 1
-    let lessonId = ToolsUtil.getQueryString('lessonId')
+  componentWillMount = async () => {
+    let {stageId = 1, lessonId} = this.props.match.params
     this.loadData(stageId, lessonId)
   }
 
@@ -76,7 +74,7 @@ export default class extends React.Component {
             </div>
           </div>
           <div className='wx-text-center margin25'>
-            <Link href={'/businessReading/analysis?stageId=' + stageId + '&lessonId=' + lessonId}>
+            <Link to={`/pages/businessReading/analysis/${stageId}/${lessonId}`}>
               <Button className='businessReading-btn'>开始阅读</Button>
             </Link>
           </div>

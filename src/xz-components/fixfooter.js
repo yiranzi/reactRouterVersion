@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 export default class extends React.Component {
   componentDidMount () {
     let contentHeight = document.getElementsByClassName('fix-footer')[0].clientHeight
