@@ -33,10 +33,13 @@ let AppRouter = class AppRouter extends React.Component {
           <li>
             <Link to="/pages/test">2test</Link>
           </li>
-
+          <li>
+            <Link to="/pages/abilitycollege/main">3main</Link>
+          </li>
           {/*<Switch>*/}
           <Route exact path="/" component={Home} />
           <Route path="/pages/test" component={Test} />
+          <Route path="/pages/abilitycollege/main" component={Main} />
           {/*<Route path="/about" component={About} />*/}
           {/*<Route path="/topics" component={Topics} />*/}
           {/*</Switch>*/}
