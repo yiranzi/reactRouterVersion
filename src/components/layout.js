@@ -4,7 +4,7 @@ import MiniProgram from '../util/miniProgram'
 import {Toptips} from 'react-weui'
 import weui from 'weui'
 import rweui from 'react-weui/build/dist/react-weui.css'
-// import DefaultCss from '../config/defaultCss'
+import DefaultCss from '../config/defaultCss'
 
 export default class Layout extends React.Component {
   renderChild () {
@@ -43,7 +43,7 @@ export default class Layout extends React.Component {
         {this.renderGlobalCss()}
         <style dangerouslySetInnerHTML={{__html: weui}} />
         <style dangerouslySetInnerHTML={{__html: rweui}} />
-        {/*<DefaultCss />*/}
+        <DefaultCss />
       </div>
     )
   }

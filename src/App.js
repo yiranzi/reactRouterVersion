@@ -6,6 +6,8 @@ import init from "./wx/init";
 import Test from './pages/test'
 import Home from './pages/home'
 // 商业英语
+import Summary from './pages/businessReading/summary'
+// 课程首页
 import Main from './pages/abilitycollege/main'
 
 let AppRouter = class AppRouter extends React.Component {
@@ -36,10 +38,14 @@ let AppRouter = class AppRouter extends React.Component {
           <li>
             <Link to="/pages/abilitycollege/main">3main</Link>
           </li>
+          <li>
+            <Link to="/pages/businessReading/summary">4Summary</Link>
+          </li>
           {/*<Switch>*/}
           <Route exact path="/" component={Home} />
           <Route path="/pages/test" component={Test} />
           <Route path="/pages/abilitycollege/main" component={Main} />
+          <Route path="/pages/businessReading/summary" component={Summary} />
           {/*<Route path="/about" component={About} />*/}
           {/*<Route path="/topics" component={Topics} />*/}
           {/*</Switch>*/}
