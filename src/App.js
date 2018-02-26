@@ -1,13 +1,10 @@
 import React from "react";
-import { HashRouter, Route, Link, Switch } from "react-router-dom";
+import { HashRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 import init from "./wx/init";
-
-// 路由
-import Test from './pages/test'
 import Home from './pages/home'
+
 // 商业英语
 import Summary from './pages/businessReading/summary'
-// import Mine from './pages/businessReading/mine'
 import Guide from './pages/businessReading/guide'
 import Keywords from './pages/businessReading/keywords'
 import Analysis from './pages/businessReading/analysis'
@@ -19,11 +16,14 @@ import BusinessLessonList from './pages/businessReading/lessonlist'
 // 课程首页
 import Main from './pages/abilitycollege/main'
 
+// 支付
+import PaymentBuygether from './pages/payment/buygether'
+
 let AppRouter = class AppRouter extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      finish: true
+      finish: false
     }
   }
 
@@ -64,12 +64,15 @@ let AppRouter = class AppRouter extends React.Component {
             <Route path="/pages/businessReading/test/:stageId/:lessonId" component={BusinessTest} />
             <Route path="/pages/businessReading/mine/:stageId" component={BusinessMine} />
             <Route path="/pages/businessReading/lessonlist/:stageId" component={BusinessLessonList} />
+            <Route path="/pages/payment/buygether/:courseId" component={PaymentBuygether} />
+            {/*<Redirect exact from="/" to="/home" />*/}
+            {/*<Route exact path="/home" component={Home} />*/}
             {/*<Route path="/pages/businessReading/knowledgelist/:stageId" component={BusinessList} />*/}
           </Switch>
         </div>
       </HashRouter>)
     } else {
-      return (<div>123</div>)
+      return (<div>loading</div>)
     }
   }
 };

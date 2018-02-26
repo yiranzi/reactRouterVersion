@@ -8,6 +8,7 @@ wxPay.payInit = (payInfo) => {
   // 2 调用微信
   if (window.__wxjs_environment === 'miniprogram') {
     let { nonceStr, paySign, timeStamp, prepayId } = payInfo
+    // eslint-disable-next-line
     wx.miniProgram.navigateTo({ url: `/pages/target/target?timeStamp=${timeStamp}&nonceStr=${nonceStr}&prepayId=${prepayId}&signType=MD5&paySign=${paySign}` })
     return new Promise((resolve, reject) => {
       resolve()
