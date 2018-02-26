@@ -11,7 +11,9 @@ const init = async () => {
       'onMenuShareAppMessage',
       'onMenuShareQQ',
       'onMenuShareWeibo',
-      'onMenuShareQZone'
+      'onMenuShareQZone',
+      'showAllNonBaseMenuItem',
+      'hideAllNonBaseMenuItem'
     ]
     // eslint-disable-next-line
     wx.config(wxConfig)

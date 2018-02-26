@@ -24,7 +24,7 @@ export default class extends React.Component {
     return (
       <FixFooter>
         <div className='wx-space-center'>
-          <Link to='/businessReading/guide?stageId=1'>
+          <Link to={`/pages/businessReading/guide/1`}>
             <a>
               <div className={classNames('today', {current: type === 'today'})}>
                 {this.renderToday(type)}
@@ -32,7 +32,7 @@ export default class extends React.Component {
               </div>
             </a>
           </Link>
-          <Link to='/businessReading/mine?stageId=1'>
+          <Link to={`/pages/businessReading/mine/1`}>
             <a>
               <div className={classNames('mine', {current: type === 'mine'})}>
                 {this.renderMine(type)}

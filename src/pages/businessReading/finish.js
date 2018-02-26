@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'next/link'
+import {Link} from 'react-router-dom'
 import Layout from '../../containers/businessReading/layout'
 import Footer from '../../containers/businessReading/footer'
 import AxiosUtil from '../../util/axios'
@@ -7,10 +7,8 @@ import ToolsUtil from '../../util/tools'
 import DataUtil from '../../util/data'
 import SharePop from '../../containers/businessReading/sharePop'
 import Loading from '../../components/loading'
-import CloseShare from '../../xz-components/closeShare'
 
 export default class extends React.Component {
-  shareCloseConfig = new CloseShare() // 分享初始化
   constructor (props) {
     super(props)
     this.state = {
@@ -22,24 +20,18 @@ export default class extends React.Component {
   }
 
   componentDidMount = async () => {
-    let lessonId = ToolsUtil.getQueryString('lessonId')
-    if (!sessionStorage.getItem(`finishShare${lessonId}`)) {
-      sessionStorage.setItem(`finishShare${lessonId}`, true)
-      location.reload()
-    } else {
-      this.loadCompleteData(lessonId)
-      this.setState({
-        haveRefresh: true,
-        lessonId: lessonId
-      })
-    }
+    let {lessonId} = this.props.match.params
+    this.loadCompleteData(lessonId)
+    this.setState({
+      haveRefresh: true,
+      lessonId: lessonId
+    })
   }
 
-  componentWillUnmount () {
-    let key = 'finishShare' + this.state.lessonId
-    sessionStorage.removeItem(key)
+  componentWillUnmount = ()=> {
     // ios因为刷新后，需要重新分享功能,否则一直拥有分享功能
-    this.shareCloseConfig.closeShare()
+    // eslint-disable-next-line
+    wx.hideAllNonBaseMenuItem()
   }
 
   loadCompleteData = async (lessonId) => {
@@ -316,8 +308,9 @@ export default class extends React.Component {
           {result.nowLesson && <SharePop lessonId={this.state.lessonId} shareInfo={this.state.result} />}
           <div className='block'>
             {this.renderHeader()}
-            {this.renderLessonInfo()}
-            {this.renderKnowledgeInfo()}
+            {/*样式有误*/}
+            {/*{this.renderLessonInfo()}*/}
+            {/*{this.renderKnowledgeInfo()}*/}
             {this.renderAnalysis()}
           </div>
           <Footer type='today' />

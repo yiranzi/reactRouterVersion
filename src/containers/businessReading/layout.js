@@ -1,22 +1,17 @@
 import React from 'react'
 import Layout from '../../components/layout'
 import BusinessReading from '../../config/businessReading'
-// import CloseShare from '../../xz-components/closeShare'
-
 export default class extends React.Component {
-  // shareCloseConfig = new CloseShare() // 分享初始化
 
-  // componentDidMount = async () => {
-  //   let _this = this
-  //   let {canShare} = this.props
-  //   // 如果该页面不可以分享
-  //   if (!canShare) {
-  //     this.shareCloseConfig.init().then(() => {
-  //       _this.shareCloseConfig.closeShare()
-  //     })
-  //   }
-  //   // 如果该页面可以分享，就不进行任何屏蔽处理
-  // }
+  componentDidMount = async () => {
+    let {canShare} = this.props
+    // 如果该页面不可以分享
+    if (!canShare) {
+      // eslint-disable-next-line
+      wx.hideAllNonBaseMenuItem()
+    }
+    // 如果该页面可以分享，就不进行任何屏蔽处理
+  }
 
   renderGlobalCss () {
     return (

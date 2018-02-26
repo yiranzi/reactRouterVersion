@@ -3,10 +3,7 @@ const setShare = (obj={}) => {
   let {title, desc, link, imgUrl, success, cancel} = obj
   if (!link) {
     link = window.location.href
-
   }
-  // alert(link)
-  link = 'https://rcwx.review.xiaozao.org/bb#/pages/test'
   wx.onMenuShareTimeline({
     title: title,
     link: link,

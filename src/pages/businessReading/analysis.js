@@ -14,7 +14,7 @@ export default class extends React.Component {
     }
   }
   componentDidMount = async () => {
-    let lessonId = ToolsUtil.getQueryString('lessonId')
+    let {lessonId} = this.props.match.params
     let content = await AjaxUtil.get(`/api/business-english/getByLessonId/${lessonId}`)
     this.setState({content: content})
   }
@@ -24,6 +24,7 @@ export default class extends React.Component {
     return (
       <Layout>
         <Main
+          matchInfo={this.props.match.params}
           content={content}
           contentDTOList={content.businessEnglishLessonContentDTOList}
           audioSource={content.audio}

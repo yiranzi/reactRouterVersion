@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'next/link'
+import {Link} from 'react-router-dom'
 import Layout from '../../containers/businessReading/layout'
 import NoData from '../../containers/businessReading/nodata'
 import AxiosUtil from '../../util/axios'
@@ -17,7 +17,7 @@ export default class extends React.Component {
   }
 
   componentDidMount = async () => {
-    let stageId = ToolsUtil.getQueryString('stageId')
+    let {stageId} = this.props.match.params
     this.loadData(stageId)
   }
 
@@ -45,7 +45,7 @@ export default class extends React.Component {
     return lessonList.map((item, index) => {
       return (
         <li className='line' key={index} onClick={e => this.openHandle(e, item)}>
-          <Link href={`/pages/businessReading/guide?lessonId=' + item.id}>
+          <Link to={`/pages/businessReading/guide/1/${item.id}`}>
             <div className={'block ' + (!item.over && 'gray')}>
               <h4 className='title'>{item.name}</h4>
               <p className='title-en'>{item.titleEn}</p>

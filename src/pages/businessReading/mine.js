@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'next/link'
+import {Link} from 'react-router-dom'
 import BusinessReading from '../../config/businessReading'
 import Layout from '../../containers/businessReading/layout'
 import AjaxUtil from '../../util/axios'
@@ -28,7 +28,7 @@ export default class extends React.Component {
     AjaxUtil.get('/api/user').then((user) => { this.setState({user: user}) })
   }
   fetchBusinessInfo () {
-    let stageId = ToolsUtil.getQueryString('stageId')
+    let {stageId} = this.props.match.params
     AjaxUtil.get(`/api/business-english/getMyInfo/${stageId}`).then((businessInfo) => {
       this.setState({stageId: stageId, businessInfo: businessInfo})
     })
@@ -79,7 +79,7 @@ export default class extends React.Component {
           </div>
           <div className='lesson-progress wx-space-center wx-text-center'>
             <div className='finished'>
-              <Link href={`/businessReading/lessonlist?stageId=${stageId}`}>
+              <Link to={`/pages/businessReading/lessonlist/${stageId}`}>
                 <a>
                   <div className='text'>已完成</div>
                   <div className='count'><strong>{businessInfo.completeLesson}</strong> {this.getText(businessInfo.completeLesson, 'Lesson', 'Lessons')}</div>
@@ -87,7 +87,7 @@ export default class extends React.Component {
               </Link>
             </div>
             <div className='missed'>
-              <Link href={`/businessReading/lessonlist?stageId=${stageId}`}>
+              <Link to={`/pages/businessReading/lessonlist/${stageId}`}>
                 <a>
                   <div className='text'>已错过</div>
                   <div className='count'><strong>{businessInfo.missLesson}</strong> {this.getText(businessInfo.missLesson, 'Lesson', 'Lessons')}</div>
@@ -97,7 +97,7 @@ export default class extends React.Component {
           </div>
           <ul className='mine-list'>
             <li className='knowledge'>
-              <Link href={`/businessReading/knowledgelist?stageId=${stageId}`}>
+              <Link to={`/pages/businessReading/knowledgelist/${stageId}`}>
                 <a className='wx-space-center'>
                   <div className='list-wrapper '>
                     <h4>我的知识导图</h4>
@@ -109,7 +109,7 @@ export default class extends React.Component {
               </Link>
             </li>
             <li className='source'>
-              <Link href={`/businessReading/sourcelist?stageId=${stageId}`}>
+              <Link to={`/pages/businessReading/sourcelist/${stageId}`}>
                 <a className='wx-space-center'>
                   <div className='list-wrapper '>
                     <h4>文章朗读</h4>
@@ -122,7 +122,7 @@ export default class extends React.Component {
               </Link>
             </li>
             <li className='prize'>
-              <Link href='/businessReading/myprize'>
+              <Link to={`/pages/businessReading/myprize`}>
                 <a className='wx-space-center'>
                   <div className='list-wrapper '>
                     <h4>我的奖励</h4>
@@ -146,17 +146,15 @@ export default class extends React.Component {
               </div>
             </li>
             <li className='question wx-space-center'>
-              <Link href='https://shimo.im/docs/K73oXGayLxEKK5YT'>
-                <a className='wx-space-center'>
-                  <div className='list-wrapper'>
-                    <h4>常见问题答疑</h4>
-                    <div>使用方法、打卡奖励、时间安排</div>
-                  </div>
-                  <div className='arrow'>
-                    <img src='/static/img/businessReading/arrow-right.png' />
-                  </div>
-                </a>
-              </Link>
+              <a href='https://shimo.im/docs/K73oXGayLxEKK5YT' className='wx-space-center'>
+                <div className='list-wrapper'>
+                  <h4>常见问题答疑</h4>
+                  <div>使用方法、打卡奖励、时间安排</div>
+                </div>
+                <div className='arrow'>
+                  <img src='/static/img/businessReading/arrow-right.png' />
+                </div>
+              </a>
             </li>
           </ul>
         </div>

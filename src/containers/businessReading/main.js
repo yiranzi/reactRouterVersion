@@ -4,7 +4,7 @@ import Audio from '../../xz-components/businessAudio'
 import FixFooter from '../../xz-components/fixfooter'
 import Button from '../../xz-components/button'
 import DataUtil from '../../util/data'
-import Link from 'next/link'
+import {Link} from 'react-router-dom'
 
 export default class extends React.Component {
   position = {}
@@ -117,9 +117,10 @@ export default class extends React.Component {
     }
   }
   renderKnowledge () {
+    let {stageId, lessonId} = this.props.matchInfo
     return (
       <div className='wx-text-center'>
-        <Link href={`/businessReading/knowledge${location.search}`}>
+        <Link to={`/pages/businessReading/knowledge/${stageId}/${lessonId}`}>
           <a className='wx-block' >
             <Button
               className='businessReading-btn'

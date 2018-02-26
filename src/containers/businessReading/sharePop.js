@@ -1,15 +1,11 @@
 import React from 'react'
-import WxShare from '../../xz-components/newWxShare'
 import ModalboxControlled from '../../xz-components/modalboxControlled'
 import {ModalBoxPopFunc} from '../../xz-components/modalbox'
-import Router from 'next/router'
-import {Alert} from 'xz-components/alert'
+import setShare from '../../wx/setShare'
 
 import AxiosUtil from '../../util/axios'
-// import ToolsUtil from '../../util/tools'
 
 export default class extends React.Component {
-  shareConfig = new WxShare() // 分享初始化
   constructor (props) {
     super(props)
     this.state = {
@@ -18,15 +14,12 @@ export default class extends React.Component {
   }
 
   componentWillMount = async () => {
-    let _this = this
     if (sessionStorage.getItem(`finishShare${this.props.lessonId}pop`)) {
       this.setState({
         close: true
       })
     }
-    this.shareConfig.init().then(() => {
-      _this.setShare()
-    })
+    this.setShareParams()
   }
 
   onSuccess (msg) {
@@ -43,7 +36,7 @@ export default class extends React.Component {
     }
   }
 
-  setShare = async () => {
+  setShareParams = async () => {
     let {shareId: userId, shareKey, sharePic, shareInfo} = this.props.shareInfo
     let addParam = `/shareview?lessonId=${this.props.lessonId}&userId=${userId}&shareKey=${shareKey}`
     let shareUrl
@@ -64,7 +57,7 @@ export default class extends React.Component {
     // if (this.state.environment === 'little') {
     //   window.history.replaceState(null, '', location.href)
     // }
-    this.shareConfig.setShareConfig(shareProp)
+    setShare(shareProp)
   }
 
   componentWillUnmount () {

@@ -18,8 +18,7 @@ export default class extends React.Component {
   }
 
   componentDidMount () {
-    let stageId = ToolsUtil.getQueryString('stageId')
-    let lessonId = ToolsUtil.getQueryString('lessonId')
+    let {stageId, lessonId} = this.props.match.params
     this.loadData(stageId, lessonId)
   }
 

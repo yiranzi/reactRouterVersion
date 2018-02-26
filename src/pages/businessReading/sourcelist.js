@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'next/link'
+import {Link} from 'react-router-dom'
 import Layout from '../../containers/businessReading/layout'
 import AxiosUtil from '../../util/axios'
 import ToolsUtil from '../../util/tools'
@@ -15,7 +15,7 @@ export default class extends React.Component {
   }
 
   componentDidMount = async () => {
-    let stageId = ToolsUtil.getQueryString('stageId')
+    let {stageId} = this.props.match.params
     this.loadData(stageId)
   }
 

@@ -16,7 +16,7 @@ export default class extends React.Component {
   }
 
   componentDidMount = async () => {
-    let stageId = ToolsUtil.getQueryString('stageId')
+    let stageId = this.props.match.params('stageId')
     this.loadData(stageId)
   }
 

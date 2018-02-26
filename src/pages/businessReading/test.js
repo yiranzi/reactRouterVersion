@@ -1,5 +1,5 @@
 import React from 'react'
-import Router from 'next/router'
+// import Router from 'next/router'
 import Layout from '../../containers/businessReading/layout'
 import Title from '../../containers/businessReading/title'
 import AxiosUtil from '../../util/axios'
@@ -22,8 +22,7 @@ export default class extends React.Component {
   }
 
   componentDidMount = async () => {
-    let stageId = ToolsUtil.getQueryString('stageId')
-    let lessonId = ToolsUtil.getQueryString('lessonId')
+    let {stageId, lessonId} = this.props.match.params
     this.loadData(stageId, lessonId)
   }
 
@@ -51,7 +50,10 @@ export default class extends React.Component {
         answerDTOList: this.state.answerDTOList,
         time: new Date() - this.state.startTime
       })
-      Router.replace('/businessReading/finish?stageId=' + this.state.stageId + '&lessonId=' + this.state.lessonId)
+      // TODO
+      // 需要修改一下
+      this.props.history.replace('123')
+      // Router.replace('/businessReading/finish?stageId=' + this.state.stageId + '&lessonId=' + this.state.lessonId)
     } catch (e) {
       this.setState({
         error: e.message

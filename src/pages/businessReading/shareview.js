@@ -14,9 +14,7 @@ export default class extends React.Component {
   }
 
   componentWillMount = async () => {
-    let userId = ToolsUtil.getQueryString('userId')
-    let lessonId = ToolsUtil.getQueryString('lessonId')
-    let shareKey = ToolsUtil.getQueryString('shareKey')
+    let {userId, lessonId, shareKey} = this.props.match.params
     let shareInfo = await AxiosUtil.get(`/api/business-english/getShareResult/${userId}/${lessonId}/${shareKey}`)
 
     this.setState({

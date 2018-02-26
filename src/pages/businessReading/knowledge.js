@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'next/link'
+import {Link} from 'react-router-dom'
 import Layout from '../../containers/businessReading/layout'
 import Title from '../../containers/businessReading/title'
 import AxiosUtil from '../../util/axios'
@@ -22,8 +22,7 @@ export default class extends React.Component {
   }
 
   componentDidMount = async () => {
-    let stageId = ToolsUtil.getQueryString('stageId')
-    let lessonId = ToolsUtil.getQueryString('lessonId')
+    let {stageId, lessonId} = this.props.match.params
     this.loadData(stageId, lessonId)
     this.loadTestStatus(lessonId)
   }
@@ -125,14 +124,14 @@ export default class extends React.Component {
           </div>
           <div className='wx-text-center margin25'>
             {!testStatus &&
-              <Link href={`/pages/businessReading/finish?stageId=' + stageId + '&lessonId=' + lessonId}>
+              <Link to={`/pages/businessReading/finish/${stageId}/${lessonId}`}>
                 <a>
                   <Button className='businessReading-btn'>查看成绩</Button>
                 </a>
               </Link>
             }
-            {testStatus &&
-              <Link href={`/pages/businessReading/test?stageId=' + stageId + '&lessonId=' + lessonId}>
+            {testStatus &&  
+              <Link to={`/pages/businessReading/test/${stageId}/${lessonId}`}>
                 <a>
                   <Button className='businessReading-btn'>读完了，去做题</Button>
                 </a>
