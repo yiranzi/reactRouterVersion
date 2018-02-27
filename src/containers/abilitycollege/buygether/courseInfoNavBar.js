@@ -16,16 +16,18 @@ export default class extends React.Component {
   setScroll () {
     let _this = this
     window.addEventListener('scroll', function (e) {
-      let a = _this.refs.topFixedPos.offsetTop
-      if (window.scrollY > a && !_this.state.topFixed) {
-        _this.setState({
-          topFixed: true
-        })
-      }
-      if (window.scrollY < a && _this.state.topFixed) {
-        _this.setState({
-          topFixed: false
-        })
+      if (_this.refs.topFixedPos) {
+        let a = _this.refs.topFixedPos.offsetTop
+        if (window.scrollY > a && !_this.state.topFixed) {
+          _this.setState({
+            topFixed: true
+          })
+        }
+        if (window.scrollY < a && _this.state.topFixed) {
+          _this.setState({
+            topFixed: false
+          })
+        }
       }
     })
   }

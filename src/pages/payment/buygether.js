@@ -491,7 +491,6 @@ export default class extends React.Component {
         return (
           <Layout>
             <div className='buy-card-page'>
-              <Redirect exact from="/pages/payment/buygether" to={window.__wxjs_environment === 'miniprogram' ? "/pages/abilitycollege/mainx" : "/pages/abilitycollege/main"} />
               {this.renderTopImg(this.state.bgCover)}
               <div className='card-div'>
                 <h1 className='course-title'>{this.state.packageList[0].name}</h1>

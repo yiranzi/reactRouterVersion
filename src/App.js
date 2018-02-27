@@ -2,6 +2,7 @@ import React from "react";
 import { HashRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 import init from "./wx/init";
 import Home from './pages/home'
+import Matchless from './pages/matchless'
 
 // 商业英语
 import Summary from './pages/businessReading/summary'
@@ -23,7 +24,7 @@ let AppRouter = class AppRouter extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      finish: false
+      finish: true
     }
   }
 
@@ -65,6 +66,8 @@ let AppRouter = class AppRouter extends React.Component {
             <Route path="/pages/businessReading/mine/:stageId" component={BusinessMine} />
             <Route path="/pages/businessReading/lessonlist/:stageId" component={BusinessLessonList} />
             <Route path="/pages/payment/buygether/:courseId" component={PaymentBuygether} />
+            <Redirect exact from="/pages/payment/buygether" to={window.__wxjs_environment === 'miniprogram' ? "/pages/abilitycollege/mainx" : "/pages/abilitycollege/main"} />
+            <Route component={Matchless}/>
             {/*<Redirect exact from="/" to="/home" />*/}
             {/*<Route exact path="/home" component={Home} />*/}
             {/*<Route path="/pages/businessReading/knowledgelist/:stageId" component={BusinessList} />*/}
@@ -72,7 +75,22 @@ let AppRouter = class AppRouter extends React.Component {
         </div>
       </HashRouter>)
     } else {
-      return (<div>loading</div>)
+      return (<div className='loading-icon'>
+        <img src='/static/img/components/loading_icon.png' />
+        <style jsx>{`
+          .loading-icon {
+            text-align: center;
+          }
+          .loading-icon img {
+            width: 2rem;
+            animation: circle 1s infinite linear;
+          }
+          @keyframes circle {
+            0%{ transform:rotate(0deg); }
+            100%{ transform:rotate(-360deg); }
+          }
+        `}</style>
+      </div>)
     }
   }
 };

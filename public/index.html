@@ -8,16 +8,20 @@
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!--<link rel="manifest" href="%PUBLIC_URL%/manifest.json">-->
+    <!--<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">-->
 
     <!--外部资源-->
-    <link href='/static/js/video-js.css' rel='stylesheet' />
-    <!--<script type="text/javascript" src="%PUBLIC_URL%/jweixin.js"></script>-->
-    <script type="text/javascript" src="/static/jweixin.js"></script>
-    <script type="text/javascript" src="/static/js/video.js"></script>
-    <script type="text/javascript" src="/static/js/videojs-contrib-hls.min.js"></script>
 
+    <!--<script type="text/javascript" src="%PUBLIC_URL%/jweixin.js"></script>-->
+
+
+      <style type="text/css">
+          @keyframes circle {
+              0%{ transform:rotate(0deg); }
+              100%{ transform:rotate(-360deg); }
+          }
+      </style>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -30,7 +34,18 @@
       <title>小灶能力学院</title>
   </head>
   <body>
-    <div id="root"></div>
+  <div style="text-align: center;">
+      <!--<div style="width: 2rem;animation: circle 1s infinite linear;" >123123</div>-->
+      <img style="width: 2rem;animation: circle 1s infinite linear;" src='/static/img/components/loading_icon.png' />
+  </div>
+  <link href='/static/js/video-js.css' rel='stylesheet' />
+  <script type="text/javascript" src="/static/js/jweixin.js"></script>
+  <script type="text/javascript" src="/static/js/video.js"></script>
+  <script type="text/javascript" src="/static/js/videojs-contrib-hls.min.js"></script>
+    <div id="root">
+
+    </div>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
