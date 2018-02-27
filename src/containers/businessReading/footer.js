@@ -24,21 +24,18 @@ export default class extends React.Component {
     return (
       <FixFooter>
         <div className='wx-space-center'>
+
           <Link to={`/pages/businessReading/guide/1`}>
-            <a>
               <div className={classNames('today', {current: type === 'today'})}>
                 {this.renderToday(type)}
                 <p className='text'>今日</p>
               </div>
-            </a>
           </Link>
           <Link to={`/pages/businessReading/mine/1`}>
-            <a>
               <div className={classNames('mine', {current: type === 'mine'})}>
                 {this.renderMine(type)}
                 <p className='text'>我的</p>
               </div>
-            </a>
           </Link>
         </div>
         <style jsx>{`
@@ -46,11 +43,7 @@ export default class extends React.Component {
             font-size: 0px;
             padding: 5px 0;
           }
-          a {
-            flex: 1;
-            text-align: center;
-            width: 100%;
-          }
+
           .current {
             color: ${BusinessReading.color.main};
           }
@@ -64,6 +57,11 @@ export default class extends React.Component {
           }
           .fix-footer a img {
             width: 24px;
+          }
+          .wx-space-center a {
+            flex: 1;
+            text-align: center;
+            width: 100%;
           }
         `}</style>
       </FixFooter>

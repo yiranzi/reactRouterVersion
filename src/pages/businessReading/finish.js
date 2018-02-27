@@ -308,9 +308,8 @@ export default class extends React.Component {
           {result.nowLesson && <SharePop lessonId={this.state.lessonId} shareInfo={this.state.result} />}
           <div className='block'>
             {this.renderHeader()}
-            {/*样式有误*/}
-            {/*{this.renderLessonInfo()}*/}
-            {/*{this.renderKnowledgeInfo()}*/}
+            {this.renderLessonInfo()}
+            {this.renderKnowledgeInfo()}
             {this.renderAnalysis()}
           </div>
           <Footer type='today' />
