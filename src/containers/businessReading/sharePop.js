@@ -38,7 +38,7 @@ export default class extends React.Component {
 
   setShareParams = async () => {
     let {shareId: userId, shareKey, sharePic, shareInfo} = this.props.shareInfo
-    let addParam = `/shareview?lessonId=${this.props.lessonId}&userId=${userId}&shareKey=${shareKey}`
+    let addParam = `/shareview/${this.props.lessonId}/${userId}/${shareKey}`
     let shareUrl
     let pos = window.location.href.indexOf('/finish')
     if (pos !== -1) {

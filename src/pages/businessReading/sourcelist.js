@@ -31,7 +31,7 @@ export default class extends React.Component {
     return sourceList.map((item, index) => {
       return (
         <li className='line' key={index}>
-          <Link href={`/businessReading/source?lessonId=${item.id}`}>
+          <Link to={`/pages/businessReading/source/${item.id}`}>
             <a>
               <div className='block'>
                 <div className='left rich-text'>

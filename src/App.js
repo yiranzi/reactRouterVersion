@@ -15,7 +15,10 @@ import BusinessTest from './pages/businessReading/test'
 import BusinessMine from './pages/businessReading/mine'
 import BusinessLessonList from './pages/businessReading/lessonlist'
 import BusinessKnowledgeList from './pages/businessReading/knowledgelist'
-// import BusinessKnowledge from './pages/businessReading/sourcelist'
+import BusinesssSourceList from './pages/businessReading/sourcelist'
+import BusinesssSource from './pages/businessReading/source'
+import BusinesssMyprize from './pages/businessReading/myprize'
+import BusinesssShareView from './pages/businessReading/shareview'
 // 课程首页
 import Main from './pages/abilitycollege/main'
 
@@ -67,7 +70,11 @@ let AppRouter = class AppRouter extends React.Component {
             <Route path="/pages/businessReading/test/:stageId/:lessonId" component={BusinessTest} />
             <Route path="/pages/businessReading/mine/:stageId" component={BusinessMine} />
             <Route path="/pages/businessReading/lessonlist/:stageId" component={BusinessLessonList} />
-            <Route path="/pages/businessReading/knowledgelist/:stageId" component={BusinessKnowledge} />
+            <Route path="/pages/businessReading/knowledgelist/:stageId" component={BusinessKnowledgeList} />
+            <Route path="/pages/businessReading/sourcelist/:stageId" component={BusinesssSourceList} />
+            <Route path="/pages/businessReading/source/:lessonId" component={BusinesssSource} />
+            <Route path="/pages/businessReading/myprize" component={BusinesssMyprize} />
+            <Route path="/pages/businessReading/shareview/:lessonId/:userId/:sharekey" component={BusinesssShareView} />
 
             <Route path="/pages/payment/buygether/:courseId" component={PaymentBuygether} />
             <Redirect exact from="/pages/payment/buygether" to={window.__wxjs_environment === 'miniprogram' ? "/pages/abilitycollege/mainx" : "/pages/abilitycollege/main"} />
