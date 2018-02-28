@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 
 import registerServiceWorker from './registerServiceWorker';
-// document.cookie = 'SESSION' + '=' + '6959d739-6786-4157-a126-e6820230d43f'
+// document.cookie = 'SESSION' + '=' + 'd3c8b015-3cb5-4550-ad51-7022a0da5599'
 
 
 
